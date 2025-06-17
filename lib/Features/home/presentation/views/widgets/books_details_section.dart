@@ -16,7 +16,7 @@ class BookDetailsSection extends StatelessWidget {
         children: [
           Padding(
             padding:
-            EdgeInsets.symmetric(horizontal: width * .19, vertical: 18),
+                EdgeInsets.symmetric(horizontal: width * .19, vertical: 18),
             child: const FeaturedListViewItem(),
           ),
           const SizedBox(
