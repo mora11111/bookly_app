@@ -17,7 +17,9 @@ class BookDetailsSection extends StatelessWidget {
           Padding(
             padding:
                 EdgeInsets.symmetric(horizontal: width * .19, vertical: 18),
-            child: const FeaturedListViewItem(),
+            child: const FeaturedListViewItem(
+              imageUrl: 'https://www.samsungmobilepress.com/media-assets/galaxy-s25-ultra/',
+            ),
           ),
           const SizedBox(
             height: 18,

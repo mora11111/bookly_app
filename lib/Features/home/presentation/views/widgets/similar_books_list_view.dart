@@ -13,7 +13,9 @@ class SimilarBooksListView extends StatelessWidget {
           itemBuilder: (context, index) {
             return const Padding(
               padding: EdgeInsets.symmetric(horizontal: 5),
-              child: FeaturedListViewItem(),
+              child: FeaturedListViewItem(
+                imageUrl: 'https://www.samsungmobilepress.com/media-assets/galaxy-s25-ultra/',
+              ),
             );
           }),
     );
