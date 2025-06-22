@@ -22,7 +22,7 @@ class BookListViewItem extends StatelessWidget {
         height: 125,
         child: Row(
           children: [
-            FeaturedListViewItem(imageUrl: bookModel.volumeInfo.imageLinks.thumbnail),
+            FeaturedListViewItem(imageUrl: bookModel.volumeInfo.imageLinks!.thumbnail ?? ''),
             // AspectRatio(
             //   aspectRatio: 2.5 / 4,
             //   child: Container(
@@ -62,7 +62,9 @@ class BookListViewItem extends StatelessWidget {
                    Text(
                     bookModel.volumeInfo.authors![0],
                     style: Styles.textStyle14,
-                  ),
+                     overflow: TextOverflow.ellipsis,
+
+                   ),
                   const SizedBox(
                     height: 3,
                   ),
