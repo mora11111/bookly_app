@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class BookRating extends StatelessWidget {
   const BookRating({super.key, this.mainAxisAlignment = MainAxisAlignment.end, required this.rating, required this.count});
   final MainAxisAlignment mainAxisAlignment;
-  final int rating;
+  final num rating;
   final int count;
 
   @override

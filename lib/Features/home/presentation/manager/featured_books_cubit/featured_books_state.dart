@@ -9,10 +9,10 @@ abstract class FeaturedBooksState extends Equatable {
 
 class FeaturedBooksInitial extends FeaturedBooksState {}
 class FeaturedBooksLoading extends FeaturedBooksState {}
-class FeaturedBooksIFailure extends FeaturedBooksState {
+class FeaturedBooksFailure extends FeaturedBooksState {
   final String errMessage;
 
- const FeaturedBooksIFailure(this.errMessage);
+ const FeaturedBooksFailure(this.errMessage);
 }
 class FeaturedBooksSuccess extends FeaturedBooksState {
   final List<BookModel> books;
