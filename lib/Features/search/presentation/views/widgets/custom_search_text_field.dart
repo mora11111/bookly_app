@@ -1,9 +1,13 @@
+import 'package:bookly_app/Features/search/presentation/manager/search_cubit/search__cubit.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomSearchTextField extends StatelessWidget {
-  const CustomSearchTextField({super.key});
+   CustomSearchTextField({super.key});
+
+  final TextEditingController searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +16,13 @@ class CustomSearchTextField extends StatelessWidget {
         color: Colors.white.withOpacity(0.1),
         borderRadius: BorderRadius.circular(16),
       ),
-      child: TextField(
+      child: TextFormField(
+        onTapOutside: (event) => FocusScope.of(context).unfocus(),
+        controller: searchController,
+        onChanged: (result){
+          result = searchController.text;
+          BlocProvider.of<SearchCubit>(context).fetchSearchBooks(text: result);
+        },
         style: Styles.textStyle16.copyWith(
           color: Colors.white,
         ),
@@ -23,14 +33,11 @@ class CustomSearchTextField extends StatelessWidget {
           hintStyle: Styles.textStyle16.copyWith(
             color: Colors.grey,
           ),
-          prefixIcon: const Icon(
-            CupertinoIcons.search,
-            color: Colors.grey,
-          ),
+
           suffixIcon: IconButton(
             onPressed: () {},
             icon: const Icon(
-              CupertinoIcons.clear,
+              CupertinoIcons.search,
               color: Colors.grey,
             ),
           ),
