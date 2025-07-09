@@ -1,4 +1,5 @@
 import 'package:bookly_app/Features/search/presentation/views/widgets/custom_search_text_field.dart';
+import 'package:bookly_app/Features/search/presentation/views/widgets/search_result_list_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:bookly_app/core/utils/styles.dart';
@@ -40,7 +41,7 @@ class SearchViewBody extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 16),
-              const Expanded(
+               Expanded(
                 child: CustomSearchTextField(),
               ),
             ],
@@ -51,10 +52,10 @@ class SearchViewBody extends StatelessWidget {
             style: Styles.textStyle18,
           ),
           const SizedBox(height: 20),
-          // const Expanded(
-          //   child: SearchResultListView(
-          //   ),
-          // ),
+          const Expanded(
+            child: SearchResultListView(
+            ),
+          ),
         ],
       ),
     );
