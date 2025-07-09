@@ -11,6 +11,7 @@ class SimilarBooksSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
+
           padding: const EdgeInsets.symmetric(horizontal: 30),
           child: Text(
             'You can also like',
@@ -21,6 +22,7 @@ class SimilarBooksSection extends StatelessWidget {
           height: 16,
         ),
         const SimilarBooksListView(),
+
       ],
     );
   }

@@ -36,6 +36,7 @@ class BookDetailsSection extends StatelessWidget {
         const SizedBox(
           height: 6,
         ),
+        if(book.volumeInfo.authors!.isNotEmpty)
         Opacity(
           opacity: .7,
           child: Text(
@@ -51,7 +52,7 @@ class BookDetailsSection extends StatelessWidget {
         ),
         BookRating(
           rating: book.volumeInfo.averageRating?.round() ?? 0,
-          count: book.volumeInfo.ratingsCount ?? 0,
+          count: book.volumeInfo.pageCount ?? 0,
           mainAxisAlignment: MainAxisAlignment.center,
         ),
         const SizedBox(

@@ -22,7 +22,8 @@ class BookListViewItem extends StatelessWidget {
         height: 125,
         child: Row(
           children: [
-            FeaturedListViewItem(imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? ''),
+            FeaturedListViewItem(
+                imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? ''),
             // AspectRatio(
             //   aspectRatio: 2.5 / 4,
             //   child: Container(
@@ -48,7 +49,7 @@ class BookListViewItem extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * .5,
                     child: Text(
-                      bookModel.volumeInfo.title!,
+                      bookModel.volumeInfo.title ?? 'No Title',
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Styles.textStyle20.copyWith(
@@ -59,12 +60,14 @@ class BookListViewItem extends StatelessWidget {
                   const SizedBox(
                     height: 3,
                   ),
-                   Text(
-                    bookModel.volumeInfo.authors![0],
-                    style: Styles.textStyle14,
-                     overflow: TextOverflow.ellipsis,
-
-                   ),
+                  Text(
+                    (bookModel.volumeInfo.authors?.isNotEmpty ?? false)
+                        ? bookModel.volumeInfo.authors!.first
+                        : 'Unknown Author',
+                    style: Styles.textStyle14
+                        .copyWith(color: Colors.white.withOpacity(0.70)),
+                    overflow: TextOverflow.ellipsis,
+                  ),
                   const SizedBox(
                     height: 3,
                   ),
@@ -77,10 +80,11 @@ class BookListViewItem extends StatelessWidget {
                         ),
                       ),
                       const Spacer(),
-                       BookRating(
-                         rating: bookModel.volumeInfo.averageRating?.round() ?? 0,
-                         count: bookModel.volumeInfo.ratingsCount ?? 0,
-                       ),
+                      BookRating(
+                        rating:
+                            bookModel.volumeInfo.averageRating?.round() ?? 0,
+                        count: bookModel.volumeInfo.pageCount ?? 0,
+                      ),
                     ],
                   )
                 ],
